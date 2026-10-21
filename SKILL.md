@@ -9,7 +9,7 @@ description: Transcribe audio and voice messages to text locally — Russian, Ka
 
 ## Quick start
 
-> На этом ноутбуке уже настроен whisper.cpp с моделью `large-v3-turbo`. Он работает без Python и без скачивания модели с Hugging Face — начинайте с него:
+> Если на машине уже есть whisper.cpp с моделью `large-v3-turbo`, начинайте с него: он работает без Python и без скачивания модели с Hugging Face.
 >
 > ```powershell
 > powershell -ExecutionPolicy Bypass -File .\scripts\transcribe.ps1 -Path .\audio.ogg -Language ru
@@ -44,7 +44,7 @@ python3 -m pip install --upgrade faster-whisper
 
 ## Choose the engine
 
-**whisper.cpp — основной путь на этом ноутбуке.** Модель `large-v3-turbo` и `whisper-cli.exe` уже на месте; ничего скачивать не нужно, качество выше, чем у `small`. Скрипт `scripts/transcribe.ps1` сам знает пути:
+**whisper.cpp — быстрый путь, если `whisper-cli.exe` и GGML-модель уже есть.** Ничего скачивать не нужно, качество `large-v3-turbo` выше, чем у `small`. Скрипт `scripts/transcribe.ps1` проверяет типовые пути:
 
 - `%USERPROFILE%\Documents\Codex\2026-09-09\remotion-plugin-remotion-openai-curated-remote\work\whisper\Release\whisper-cli.exe`
 - `%USERPROFILE%\whisper-models\ggml-large-v3-turbo-q5_0.bin`
@@ -54,7 +54,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\transcribe.ps1 `
   -Path .\audio.ogg -Language ru -Format txt
 ```
 
-**faster-whisper — для других машин и для скриптовой обработки.** Кроссплатформенный, не требует отдельной сборки. Скрипт декодирует MP3/M4A/OGG/WEBM через ffmpeg, а если ffmpeg нет — через PyAV. Модель скачивается с Hugging Face при первом запуске. На этом ноутбуке загрузка с Hugging Face может падать из-за корпоративного TLS — тогда используйте whisper.cpp или укажите локальную папку модели через `--model`.
+**faster-whisper — для других машин и для скриптовой обработки.** Кроссплатформенный, не требует отдельной сборки. Скрипт декодирует MP3/M4A/OGG/WEBM через ffmpeg, а если ffmpeg нет — через PyAV. Модель скачивается с Hugging Face при первом запуске. В корпоративной сети загрузка может падать из-за TLS — тогда используйте whisper.cpp или укажите локальную папку модели через `--model`.
 
 ## Workflow
 
