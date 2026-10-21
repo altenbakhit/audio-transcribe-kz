@@ -118,7 +118,7 @@ git clone https://github.com/altenbakhit/audio-transcribe-kz.git "$env:USERPROFI
 
 ## Веб-версия
 
-На сайте alten.kz есть бесплатная страница:
+В сайте alten.kz подготовлена бесплатная страница (публикуется отдельно от этого репозитория):
 
 **https://www.alten.kz/kalkulyator/transkribaciya**
 
