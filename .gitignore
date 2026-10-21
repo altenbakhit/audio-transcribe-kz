@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Whisper models and local audio
+*.bin
+*.ggml
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.webm
+
+# Results
+*.srt
+*.vtt
+*.json
+!package.json
+
+# OS
+.DS_Store
+Thumbs.db
